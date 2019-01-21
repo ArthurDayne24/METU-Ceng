@@ -1,0 +1,1 @@
+sort [Prey {pID = 5, pEnergy = 77, pActions = [W]}, Prey {pID = 12, pEnergy = 77, pActions = [W]}, Prey {pID = 6, pEnergy = 77, pActions = [W]}, Prey {pID = 15, pEnergy = 32, pActions = [E]}, Prey {pID = 101, pEnergy = 7, pActions = [N]}, Prey {pID = 3, pEnergy = 99, pActions = [W]}]

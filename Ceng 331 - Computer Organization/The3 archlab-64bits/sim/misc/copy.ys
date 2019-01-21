@@ -1,0 +1,71 @@
+#Muhammed Yusuf Temizer 2099356
+.pos 0x1000
+Stack:
+# Execution begins at address 0 
+	.pos 0 
+
+init:
+	irmovq Stack, %rsp  	# Set up stack pointer  
+	irmovq Stack, %rbp  	# Set up base pointer   
+	call Main		# Execute main program
+	halt			# Terminate program 
+
+.align 8
+#Source block
+src:
+	.quad 0x00a
+	.quad 0x0b0
+	.quad 0xc00
+
+#Destinaton block
+dest:
+	.quad 0x111
+	.quad 0x222
+	.quad 0x333
+
+Main:	pushq %rbp 
+	rrmovq %rsp,%rbp
+	irmovq $4,%rax	
+	pushq %rax		# Push 4
+	irmovq $3,%rax	
+	pushq %rax		
+	irmovq dest,%rdx
+	pushq %rdx      	# Push dest
+	irmovq src,%rdx
+	pushq %rdx      	# Push src
+	call copy_block		
+	rrmovq %rbp,%rsp
+	popq %rbp
+	ret 
+
+copy_block:
+	pushq	%rbp
+	rrmovq	%rsp, %rbp
+	pushq	%rsi
+	pushq	%rbx
+	mrmovq	16(%rbp), %rbx
+	mrmovq	24(%rbp), %rcx
+	mrmovq	32(%rbp), %rdx
+	irmovq	$0, %rsi
+	pushq   %rdi
+	irmovq  $8, %rdi
+	andq	%rdx, %rdx
+	jle	Done
+Loop:
+	mrmovq	(%rbx), %rax
+	addq	%rdi, %rbx
+	rmmovq	%rax, (%rcx)
+	addq	%rdi, %rcx
+	xorq	%rax, %rsi
+	irmovq  $1, %rdi
+	subq	%rdi, %rdx
+	irmovq  $8,%rdi
+	andq	%rdx, %rdx
+	jg	Loop
+Done:
+	rrmovq	%rsi, %rax
+	popq    %rdi
+	popq	%rbx
+	popq	%rsi
+	popq    %rbp
+ret

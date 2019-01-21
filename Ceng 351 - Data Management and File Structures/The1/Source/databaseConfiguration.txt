@@ -1,0 +1,5 @@
+host=localhost
+schema=ceng351_pa1
+username=qwelhulk
+password=myt1996
+port=3306

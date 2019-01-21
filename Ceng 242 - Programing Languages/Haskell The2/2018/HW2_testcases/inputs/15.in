@@ -1,0 +1,1 @@
+simulate [[H (Hunter {hID = 12, hlevel = Expert, hEnergy = 10, hNumberOfCatches = 20, hActions = [W,W,W,W,W,W]}),P (Prey {pID = 13, pEnergy = 90, pActions = [E,E,E,E,E,E]}),T]]

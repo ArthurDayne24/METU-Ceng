@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Reader</title>
+</head>
+
+<body>
+
+<h1 style="text-align: center">Ceng495 - QR Create and Read</h1>
+
+<h2 style="text-align: center">Create QR</h2>
+
+<div>
+    <div style="text-align: center">
+        <form >
+            Enter QR Name: <input id="getString" type="text"  placeholder="Name"><br>
+        </form>
+
+
+        <p> Pick a Front Color
+            <select id="color">
+                <title>sasa</title>
+                <option value="ffffff">White</option>
+                <option value="000000">Black</option>
+                <option value="ff0000">Red</option>
+                <option value="0000ff">Blue</option>
+                <option value="00FF00">Green</option>
+
+            </select>
+        </p>
+    </div>
+    <div  style="text-align: center">
+        <p> Pick a Backround Color
+            <select id="bgcolor">
+                <title>asas</title>
+                <option value="ffffff">White</option>
+                <option value="000000">Black</option>
+                <option value="ff0000">Red</option>
+                <option value="0000ff">Blue</option>
+                <option value="00FF00">Green</option>
+
+            </select>
+        </p>
+        <button onclick="myFunction()">Get QR</button>
+        <br>
+        <br>
+        <img align="center" id="getImage" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example">
+
+        <br>
+
+    </div>
+    <br>
+    <br>
+</div>
+
+<h2 style="text-align: center"> Read QR</h2>
+
+
+<form style="text-align: center" enctype="multipart/form-data" action="http://api.qrserver.com/v1/read-qr-code/" method="POST">
+    <!-- MAX_FILE_SIZE (maximum file size in bytes) must precede the file input field used to upload the QR code image -->
+    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+    <!-- The "name" of the input field has to be "file" as it is the name of the POST parameter -->
+    Choose QR code image to read/scan: <input id="getFile" name="file" type="file" />
+    <br>
+    <br>
+    <input type="submit" value="Read QR code" />
+</form>
+
+
+
+</body>
+
+
+<script>
+    function myFunction() {
+        var file = document.getElementById("getFile").value;
+        var qrSearch = document.getElementById("getString").value;
+        var qrColour = document.getElementById("color").value;
+        var bgColour = document.getElementById("bgcolor").value;
+        console.log(qrColour);
+
+        if(qrSearch === "")
+            alert("Please Enter a Name");
+        else
+            document.getElementById("getImage").src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrSearch + "&color=" + qrColour + "&bgcolor=" + bgColour;
+    }
+
+</script>
+
+</html>

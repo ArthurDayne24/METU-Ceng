@@ -1,0 +1,38 @@
+Muhammed Yusuf Temizer
+2099356
+
+Programming Language:
+	NodeJs(JavaScript)
+
+Framework :
+	Express
+
+Web-site link:
+	https://protected-ocean-43540.herokuapp.com/
+
+Interface:
+	I used JADE in order to render store and profile pages.
+	Others are in HTML format.
+
+Index.html:
+	Under routes directory.
+
+Design Choices:
+	There are 3 main page.
+
+	In home page: 
+		There are 3 buttons and they redirect to dedicated page (add, delete, login).
+	In the store page: 
+		User can see all the products that are being sold.
+		User can buy product in this page.
+		User can reach his/her profile page.
+	In profile page: User can see his/her information.
+
+	** User information is stored at the backend and there are no extra OP in order to get user information.
+
+User Guide:
+	1. In order to log in, user must create a new user with user name.
+	2. User will be redirected to the log in page. s/he can enter the store by giving user name to the input field.
+	3. User see on sale products. In order to buy more than one same product, by setting the count field, it is achieved with this way.
+	4. User can deposit and withdraw money in the store page by setting Value field and click the desired button.
+	5. User can see his/her information by clicking profile button.

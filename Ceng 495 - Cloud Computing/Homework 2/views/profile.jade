@@ -1,0 +1,19 @@
+doctype html
+link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+head
+  meta(charset='UTF-8')
+  title Cloud EBay
+style.
+  body{
+    background-color: #b9fdff;
+  }
+.jumbotron(style='background-color: #b9fdff')
+  div(style='display: inline')
+    h1#header1(style='display: inline') STORE
+    h5(style='display: inline; margin-left: 100px')  User Name : #{user_name}
+    div(style='display: inline; margin-left: 100px')
+      h5(style='display: inline')  Balance #{wallet}
+      button  Deposit
+    h5(style='display: inline; margin-left: 100px')  Rating #{rating}
+    h5(style='display: inline; margin-left: 100px')  Store #{store}
+    h5(style='display: inline; margin-left: 100px')  History #{history}

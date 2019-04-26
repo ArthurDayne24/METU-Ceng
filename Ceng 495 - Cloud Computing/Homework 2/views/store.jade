@@ -1,0 +1,71 @@
+doctype html
+link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+head
+ meta(charset='UTF-8')
+ title Cloud EBay
+style.
+ body{
+ background-color: #b9fdff;
+ }
+
+-var products = []
+
+script.
+    products = JSON.parse('!{prod}')
+
+script(type='text/javascript').
+    console.log(products);
+    console.log(typeof products);
+
+
+form(action='/store/profile' method='get')
+    .jumbotron(style='background-color: #b9fdff')
+        div
+            h1(style='display: inline') STORE
+            button.btn.btn-primary(type='submit' style='dislay: inline; margin-left: 100px')  Profile
+            h1(style='display: inline; margin-left: 300px ') Fund : #{userInfo.wallet}
+            button.btn.btn-primary(type='submit' style='margin-left: 25px' formaction='/deposit') Deposit
+            button.btn.btn-primary(type='submit' style='margin-left: 25px; margin-right: 25px' formaction='/withdraw' ) Withdraw
+            | Value :
+            input(type='text' name='value' style='margin-left: 20px' required='')
+
+
+
+
+
+
+for prods in JSON.parse(prod)
+    form(action='/buyItem' method='post' style='display : inline')
+
+        img(style='display: inline; margin-left: 260px; margin-top: 100px' src= '#{prods.photo}' width='200' height='100' class='center')
+
+        table(name='product_name' style='display: inline; margin-left: 100px; margin-right: 100px ' width='300' height='146')
+                tr
+                    td Product Name :
+                    td  #{prods.product_name}
+                tr
+                    td Price :
+                    td #{prods.price}
+                tr
+                    td Quantity :
+                    td #{prods.quantity}
+                tr
+                    td Seller Name :
+                    td #{prods.seller_name}
+                tr
+                    td Seller Rating :
+                    td #{prods.seller_rating}
+        | Count :
+        input(type='text' placeholder='0' maxlength="4" name='buyCount' required='')
+        input(type='hidden' value='#{prods.product_name}' name='product_name')
+        input(type='hidden' value='#{prods.price}' name='price')
+        input(type='hidden' value='#{prods.quantity}' name='quantity')
+        input(type='hidden' value='#{prods.seller_name}' name='seller_name')
+        input(type='hidden' value='#{prods.seller_rating}' name='seller_rating')
+        button.btn.btn-primary(type='submit' style='margin-left: 25px') Buy
+    br
+    br
+
+
+
+//script.console.log(products)

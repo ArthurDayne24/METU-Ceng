@@ -1,3 +1,3 @@
 # METU-Ceng
 
-All Course Homeworks
+All of the Course Homeworks
